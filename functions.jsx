@@ -66,24 +66,19 @@ function debug(target) {
 
 // Holmes printing functions
 
-function updateLink(barcodeFileName) {
-    var doc = app.activeDocument;
+function updateLink(doc, barcodeFileName) {
     var barcode = doc.links.item(barcodeFileName);
     var link = barcode.parent.itemLink;
     debug(link)
     link.update();
 }
 
-function expandEPS(barcodeFileName) {
-    // set active doc
-    var item = app.activeDocument;
+function expandEPS(doc, barcodeFileName) {
 
     // Get the barcode object
-    var barcode = item.links.item(barcodeFileName);
-    // debug(barcode)
+    var barcode = doc.links.item(barcodeFileName);
     // Get the eps of the barcode
     var barcodeEPS = barcode.parent;
-    // debug(barcodeEPS.itemLink)
     // im not sure what this is...
     var epsParent = barcodeEPS.parent;
     var swatch = app.activeDocument.swatches[2];
@@ -98,7 +93,6 @@ function expandEPS(barcodeFileName) {
     epsParent.visibleBounds = [new1, new2, new3, new4];
     epsParent.fillColor = swatch;
     epsParent.strokeColor = swatch;
-    // barcodeEPS.itemLink.update()
 
     // debug(barcodeEPS);
 }
