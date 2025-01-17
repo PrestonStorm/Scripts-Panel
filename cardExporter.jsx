@@ -76,7 +76,7 @@ for (i = 0; i < files.length; i++) {
         var exportPDFPath = new File(PDFfolderPath + "/" + PDFsizeFolder + "/" + PDFName + ".pdf");
         writeLog(logFile, exportPDFPath);
 
-        var PDFPreset = app.pdfExportPreset.itemByName("HPSThingy")
+        var PDFPreset = app.pdfExportPreset.itemByName("Holmes Print Export")
         doc.exportFile(ExportFormat.PDF_TYPE, (new File(exportPDFPath)), false, PDFPreset);
 
         // Close the document without saving changes
